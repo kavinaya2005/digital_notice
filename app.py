@@ -65,31 +65,20 @@ def verify_password(password, hashed):
 # ---------- EMAIL FUNCTIONS ----------
 def send_email_notification(subject, message, recipient_email):
     try:
-        msg = MIMEMultipart()
-        msg["From"] = EMAIL_ADDRESS
-        msg["To"] = recipient_email
-        msg["Subject"] = subject
+        # 🚀 Hackathon Mode: simulate email instead of sending
+        print("====== EMAIL SIMULATION ======")
+        print("To:", recipient_email)
+        print("Subject:", subject)
+        print("Message:", message)
+        print("Email simulated successfully (SMTP blocked on hosting).")
+        print("==============================")
 
-        body = f"""
-        <html>
-            <body>
-                <h3>Digital Notice Board</h3>
-                {message}
-            </body>
-        </html>
-        """
-        msg.attach(MIMEText(body, "html"))
-
-        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT, timeout=10)
-        server.starttls()
-        server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-        server.send_message(msg)
-        server.quit()
-
-        print(f"Email sent to {recipient_email}")
+        return True
 
     except Exception as e:
         print("Email Error:", e)
+        return False
+
 
 def notify_all_users(subject, message):
     con = get_db()
