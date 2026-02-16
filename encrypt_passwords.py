@@ -3,12 +3,14 @@ import bcrypt
 
 def encrypt_existing_passwords():
     con = pymysql.connect(
-        host="localhost",
+        host="shortline.proxy.rlwy.net",
         user="root",
-        password="abcd1234",
+        password="cvHJJcEWVNVDKGgtaiWAqLhbctIrKtAN",  # Railway password
         database="digital_notice_board",
+        port=19373,
         cursorclass=pymysql.cursors.DictCursor
     )
+
     cur = con.cursor()
 
     # Fetch username and password (NO id column in your table)

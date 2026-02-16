@@ -25,12 +25,14 @@ SMTP_PORT = 587
 # ---------- DATABASE CONNECTION ----------
 def get_db():
     return pymysql.connect(
-        host="localhost",
+        host="shortline.proxy.rlwy.net",
         user="root",
-        password="abcd1234",
+        password="cvHJJcEWVNVDKGgtaiWAqLhbctIrKtAN",  # Railway password
         database="digital_notice_board",
+        port=19373,
         cursorclass=pymysql.cursors.DictCursor
     )
+
 
 # ---------- PASSWORD HASHING ----------
 def hash_password(password):
