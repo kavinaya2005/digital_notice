@@ -18,7 +18,7 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 # ---------- EMAIL CONFIG ----------
 EMAIL_ADDRESS = "kavinayaa256@gmail.com"
-EMAIL_PASSWORD = "hhkpofwdmznynwmz"   # Gmail App Password
+EMAIL_PASSWORD = "MAIL_PASS"   # Gmail App Password
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 
@@ -28,6 +28,10 @@ import pymysql
 
 def get_db():
     return pymysql.connect(
+        print("Connected to Railway MySQL:",
+      os.environ.get("DB_HOST"),
+      os.environ.get("DB_NAME"))
+
         host=os.environ.get("DB_HOST"),
         user=os.environ.get("DB_USER"),
         password=os.environ.get("DB_PASSWORD"),
