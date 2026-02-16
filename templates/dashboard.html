@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Digital Notice Board</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="dashboard-container">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <h1>Digital Notice Board</h1>
+        <p>Welcome, <strong>{{ user }}</strong></p>
+        <span class="role-badge">{{ role }} | {{ department }}</span>
+    </header>
+
+    <!-- Cards -->
+    <section class="card-container">
+
+        {% if session['role'] in ['Admin', 'HOD', 'Faculty','Placement','Exam'] %}
+    <a href="{{ url_for('post_notice') }}" class="card">
+        <h3>➕ Post Notice</h3>
+        <p>Create and publish new notices</p>
+    </a>
+{% endif %}
+
+
+        <a href="{{ url_for('view_notices') }}" class="card">
+            <h3>📢 View Notices</h3>
+            <p>View all published notices</p>
+        </a>
+
+       
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+    </footer>
+
+</div>
+
+</body>
+</html>
+
+

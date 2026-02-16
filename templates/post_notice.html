@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Notice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<form action="{{ url_for('post_notice') }}"
+      method="POST"
+      enctype="multipart/form-data">
+
+
+    <h2>Post New Notice</h2>
+
+    <input type="text" name="title" placeholder="Notice Title" required>
+
+    <textarea name="content" placeholder="Notice Content" required></textarea>
+
+    <select name="category">
+        <option value="Academic">Academic</option>
+        <option value="Exam">Exam</option>
+        <option value="Placement">Placement</option>
+        <option value="Event">Event</option>
+    </select>
+
+    <select name="priority">
+        <option value="Urgent">Urgent</option>
+        <option value="Important">Important</option>
+        <option value="General">General</option>
+    </select>
+
+    <input type="text" name="target" placeholder="Target Audience">
+
+    <input type="file" name="file">
+
+    <button type="submit">Publish</button>
+
+    <button onclick="window.location.href='{{ url_for('dashboard') }}';" class="back-btn">⬅ Back</button>
+
+
+</form>
+
+</body>
+</html>
+

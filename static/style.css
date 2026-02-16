@@ -1,0 +1,236 @@
+/* ===== Global Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ===== Body ===== */
+body {
+    background: linear-gradient(135deg, #1d2671, #c33764);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ===== Card Layout ===== */
+form, .container {
+    background: #ffffff;
+    width: 380px;
+    max-width: 95%;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form:hover, .container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.3);
+}
+
+/* ===== Headings ===== */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1d2671;
+    font-weight: 600;
+}
+
+/* ===== Inputs ===== */
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #1d2671;
+    box-shadow: 0 0 5px rgba(29,38,113,0.3);
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+/* ===== Buttons ===== */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #1d2671;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #c33764;
+    transform: scale(1.02);
+}
+
+/* ===== Dashboard Links ===== */
+a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    margin: 12px 0;
+    padding: 12px;
+    background: #1d2671;
+    color: #fff;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+a:hover {
+    background: #c33764;
+    transform: translateY(-2px);
+}
+
+/* ===== Notices Page ===== */
+#notices {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    
+}
+
+.notice-wrapper {
+    display: block;
+    width: 100%;
+}
+
+.notices-page {
+    display: block;
+    margin: 0 auto; 
+    width: 100%;
+    text-align: left; /* keeps cards aligned left if you want */
+}
+
+
+.notice-card {
+    background: #ffffff;
+    margin-bottom: 18px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    border-left: 6px solid #1d2671;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    width: 280px;
+    margin: 10px;
+    vertical-align: top;
+    text-align: left;
+    
+}
+
+.notice-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.2);
+}
+
+.notice-card h3 {
+    color: #1d2671;
+    margin-bottom: 8px;
+}
+
+.notice-card p {
+    margin: 10px 0;
+    color: #444;
+    line-height: 1.5;
+}
+
+.notice-card small {
+    color: #777;
+}
+
+/* ===== Priority Colors ===== */
+.notice-card[data-priority="Urgent"] {
+    border-left-color: #e74c3c; /* red */
+}
+
+.notice-card[data-priority="Important"] {
+    border-left-color: #e67e22; /* orange */
+}
+
+.notice-card[data-priority="General"] {
+    border-left-color: #2ecc71; /* green */
+}
+
+/* ===== Delete Button ===== */
+.notice-card button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.notice-card button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* ===== Search Box ===== */
+#searchBox {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+#searchBox:focus {
+    border-color: #1d2671;
+    outline: none;
+}
+
+/* ===== Form Toggle Links ===== */
+form p a {
+    display: inline;
+    background: none;
+    padding: 0;
+    margin: 0;
+    color: #1d2671;
+    text-decoration: underline;
+}
+
+form p a:hover {
+    background: none;
+    transform: none;
+    color: #c33764;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    form, .container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .notice-card {
+        padding: 15px;
+        display: inline-block;
+        
+    }
+}
+
+
+
