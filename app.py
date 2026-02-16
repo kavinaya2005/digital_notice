@@ -33,9 +33,12 @@ def get_db():
         password=os.environ.get("DB_PASSWORD"),
         database=os.environ.get("DB_NAME"),
         port=int(os.environ.get("DB_PORT")),
-        cursorclass=pymysql.cursors.DictCursor
+        cursorclass=pymysql.cursors.DictCursor,
+        autocommit=True,   # 🔥 THIS FIXES RENDER ISSUE
+        connect_timeout=10,
+        read_timeout=10,
+        write_timeout=10
     )
-
 
 
 
@@ -160,7 +163,6 @@ def signup():
             VALUES (%s, %s, %s, %s, %s)
         """, (username, email, hashed, role, department))
 
-        con.commit()
         con.close()
 
         send_email_notification(
@@ -218,7 +220,7 @@ def post_notice():
             (title, content, category, priority, target, file, posted_by)
             VALUES (%s,%s,%s,%s,%s,%s,%s)
         """, (title, content, category, priority, target, filename, posted_by))
-        con.commit()
+        
         con.close()
 
         notify_all_users(
@@ -261,7 +263,6 @@ def delete_notice(notice_id):
             (notice_id, session["user"])
         )
 
-    con.commit()
     con.close()
     return redirect(url_for("view_notices"))
 
