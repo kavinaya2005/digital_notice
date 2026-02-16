@@ -23,20 +23,19 @@ SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 
 # ---------- DATABASE CONNECTION ----------
-def get_db():
-    print("Connecting to DB:",
-          os.getenv("DB_HOST"),
-          os.getenv("DB_NAME"),
-          os.getenv("DB_PORT"))
+import os
+import pymysql
 
+def get_db():
     return pymysql.connect(
-        host=os.getenv("DB_HOST"),
-        user=os.getenv("DB_USER"),
-        password=os.getenv("DB_PASSWORD"),
-        database=os.getenv("DB_NAME"),
-        port=int(os.getenv("DB_PORT")),
+        host=os.environ.get("DB_HOST"),
+        user=os.environ.get("DB_USER"),
+        password=os.environ.get("DB_PASSWORD"),
+        database=os.environ.get("DB_NAME"),
+        port=int(os.environ.get("DB_PORT")),
         cursorclass=pymysql.cursors.DictCursor
     )
+
 
 
 
