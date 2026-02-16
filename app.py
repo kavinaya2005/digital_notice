@@ -45,7 +45,13 @@ def hash_password(password):
     return bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
 
 def verify_password(password, hashed):
-    return bcrypt.checkpw(password.encode(), hashed.encode())
+    if isinstance(hashed, str):
+        hashed = hashed.strip().encode()   # remove hidden spaces/newlines
+    elif isinstance(hashed, bytes):
+        hashed = hashed.strip()
+
+    return bcrypt.checkpw(password.encode(), hashed)
+
 
 # ---------- EMAIL FUNCTIONS ----------
 def send_email_notification(subject, message, recipient_email):
