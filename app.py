@@ -27,22 +27,25 @@ import os
 import pymysql
 
 def get_db():
-    return pymysql.connect(
-        print("Connected to Railway MySQL:",
-      os.environ.get("DB_HOST"),
-      os.environ.get("DB_NAME"))
+    # DEBUG PRINT (to confirm connection values)
+    print("Connecting to Railway MySQL:",
+          os.environ.get("DB_HOST"),
+          os.environ.get("DB_NAME"),
+          os.environ.get("DB_PORT"))
 
+    return pymysql.connect(
         host=os.environ.get("DB_HOST"),
         user=os.environ.get("DB_USER"),
         password=os.environ.get("DB_PASSWORD"),
         database=os.environ.get("DB_NAME"),
         port=int(os.environ.get("DB_PORT")),
         cursorclass=pymysql.cursors.DictCursor,
-        autocommit=True,   # 🔥 THIS FIXES RENDER ISSUE
+        autocommit=True,          # ✅ IMPORTANT for Render
         connect_timeout=10,
         read_timeout=10,
         write_timeout=10
     )
+
 
 
 
